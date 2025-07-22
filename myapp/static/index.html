@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure App Service</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <button onclick="callApi()">Say Hello</button>
+    <p id="response"></p>
+
+    <script>
+        async function callApi() {
+            const response = await fetch('/api/hello?name=Azure');
+            const data = await response.json();
+            document.getElementById('response').innerText = data.message || data.error;
+        }
+    </script>
+</body>
+</html>
